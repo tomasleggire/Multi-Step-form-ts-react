@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <StepsMain steps={steps} />
       <FormLayout>
-        <h1>Personal Info</h1>
+        <h1>Personal info</h1>
         <h3>Provide your name, email address and phone number.</h3>
       </FormLayout>
     </div>
