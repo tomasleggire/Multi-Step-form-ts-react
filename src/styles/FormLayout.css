@@ -1,0 +1,16 @@
+.main-div-form {
+  width: 70%;
+  height: calc(100vh - 20px);
+  border-radius: 5px;
+  background-color: var(--principal-bg-white);
+}
+
+@media only screen and (max-width: 660px) {
+  .main-div-form {
+    width: 90%;
+    outline: auto;
+    border-radius: 5px;
+    margin-top: -70px;
+    margin-bottom: 30px;
+  }
+}

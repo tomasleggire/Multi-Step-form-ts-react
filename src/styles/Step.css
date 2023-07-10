@@ -1,0 +1,45 @@
+.main-step {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  font-family: sans-serif;
+}
+
+.step-num {
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--principal-bg-white);
+  font-weight: 100;
+  color: var(--principal-bg-white);
+}
+
+.step-num-selected {
+  background-color: var(--secondary-bg-white);
+  color: var(--principal-text);
+}
+
+.step-text {
+  text-transform: uppercase;
+}
+
+.step-text-title {
+  color: var(--gray);
+  font-weight: 100;
+}
+
+.step-text-subtitle {
+  color: var(--principal-bg-white);
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 660px) {
+  .step-text {
+    display: none;
+  }
+}

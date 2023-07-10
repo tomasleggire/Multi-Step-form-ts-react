@@ -1,0 +1,19 @@
+.App {
+  width: 100%;
+  min-height: auto;
+  max-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  gap: 5px;
+  background-color: var(--secondary-bg-white);
+}
+
+@media only screen and (max-width: 660px) {
+  .App {
+    flex-direction: column;
+    padding: 0;
+    gap: 0;
+  }
+}
