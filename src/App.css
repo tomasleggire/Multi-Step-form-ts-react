@@ -22,7 +22,15 @@
   margin-bottom: 35px;
 }
 
-
+.form-btn {
+  border: none;
+  border-radius: 5px;
+  background-color: var(--principal-text);
+  color: var(--principal-bg-white);
+  padding: 10px 15px;
+  cursor: pointer;
+  margin: 0 0 0 auto;
+}
 
 @media only screen and (max-width: 660px) {
   .App {

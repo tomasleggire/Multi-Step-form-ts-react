@@ -3,7 +3,7 @@ import { useState } from 'react';
 export default function useSteps() {
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
-  const [phoneNumber, setPhoneNumber] = useState<number>(0);
+  const [phoneNumber, setPhoneNumber] = useState<number>();
 
   const fullOrder: {
     nameUser: string;
@@ -13,6 +13,10 @@ export default function useSteps() {
     nameUser: name,
     emailUser: email,
     phoneNumberUser: phoneNumber,
+  };
+
+  const handleClickStep1 = (): void => {
+    console.log(fullOrder);
   };
 
   type Step = {
@@ -51,5 +55,12 @@ export default function useSteps() {
 
   return {
     steps,
+    name,
+    setName,
+    email,
+    setEmail,
+    phoneNumber,
+    setPhoneNumber,
+    handleClickStep1,
   };
 }

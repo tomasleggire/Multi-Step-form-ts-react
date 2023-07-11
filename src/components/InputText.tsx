@@ -7,6 +7,8 @@ interface MyProps {
   placeholder: string;
   min: number;
   max: number;
+  value: string | number;
+  setValue: React.Dispatch<SetStateAction<number | string>>;
 }
 
 export default function InputText(props: MyProps): JSX.Element {
@@ -19,6 +21,8 @@ export default function InputText(props: MyProps): JSX.Element {
         placeholder={props.placeholder}
         minLength={props.min}
         maxLength={props.max}
+        value={props.value}
+        onChange={(e) => props.setValue(e.target.value)}
       />
     </div>
   );
