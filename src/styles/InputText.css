@@ -1,0 +1,28 @@
+.input-text-main {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+  max-width: 450px;
+  gap: 5px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.input-label {
+  color: var(--principal-text);
+  font-weight: 700;
+}
+
+.input-text {
+  padding: 10px 8px;
+  border-radius: 5px;
+  background: var(--secondary-bg-white);
+  border: 1px solid var(--gray);
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
