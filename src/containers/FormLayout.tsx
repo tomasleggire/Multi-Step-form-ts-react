@@ -6,5 +6,14 @@ interface MyProps {
 }
 
 export default function FormLayout(props: MyProps): JSX.Element {
-  return <form className="main-div-form">{props.children}</form>;
+  return (
+    <form className="main-div-form">
+      <div>{props.children}</div>
+      <div className="form-buttons">
+        <button className="form-btn" type="button">
+          Next Step
+        </button>
+      </div>
+    </form>
+  );
 }

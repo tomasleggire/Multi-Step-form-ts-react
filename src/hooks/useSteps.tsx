@@ -1,4 +1,20 @@
+import { useState } from 'react';
+
 export default function useSteps() {
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [phoneNumber, setPhoneNumber] = useState<number>(0);
+
+  const fullOrder: {
+    nameUser: string;
+    emailUser: string;
+    phoneNumberUser: number;
+  } = {
+    nameUser: name,
+    emailUser: email,
+    phoneNumberUser: phoneNumber,
+  };
+
   type Step = {
     num: number;
     title: string;
