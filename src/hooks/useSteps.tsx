@@ -72,13 +72,20 @@ export default function useSteps() {
     let res: boolean = false;
     const regexName = /^[a-zA-Z\s]+$/;
     const regexEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-    if (regexName.test(name) && regexEmail.test(email)) {
+    const numberTest = phoneNumber?.toString();
+    if (
+      regexName.test(name) &&
+      regexEmail.test(email) &&
+      numberTest?.length == 10
+    ) {
       res = true;
+    } else {
+      console.log('Alguno de los campos del step uno es invalido');
     }
     if (res) {
       setStateStepOne({ selected: false, completed: true });
       setStateStepTwo({ selected: true, completed: false });
-      console.log(steps);
+      console.log(fullOrder);
     }
   };
 
