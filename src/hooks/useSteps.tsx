@@ -69,18 +69,17 @@ export default function useSteps() {
   ];
 
   const handleClickStep1 = (): void => {
-    // let res: boolean = false;
-    // const regexName = /^[a-zA-Z\s]+$/;
-    // const regexEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-    // if (regexName.test(name) && regexEmail.test(email)) {
-    //   res = true;
-    // }
-    // if (res) {
-    setStateStepOne({ selected: false, completed: true });
-    setStateStepTwo({ selected: true, completed: false });
-    console.log(steps);
-    //console.log(phoneNumber.toString.length);
-    // }
+    let res: boolean = false;
+    const regexName = /^[a-zA-Z\s]+$/;
+    const regexEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+    if (regexName.test(name) && regexEmail.test(email)) {
+      res = true;
+    }
+    if (res) {
+      setStateStepOne({ selected: false, completed: true });
+      setStateStepTwo({ selected: true, completed: false });
+      console.log(steps);
+    }
   };
 
   return {
