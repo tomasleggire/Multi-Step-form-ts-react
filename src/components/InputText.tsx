@@ -1,4 +1,5 @@
 import React from 'react';
+import type { SetStateAction } from 'react';
 import '../styles/InputText.css';
 
 interface MyProps {
@@ -8,7 +9,7 @@ interface MyProps {
   min: number;
   max: number;
   value: string | number;
-  setValue: React.Dispatch<SetStateAction<number | string>>;
+  setValue: React.Dispatch<SetStateAction<string>>;
 }
 
 export default function InputText(props: MyProps): JSX.Element {

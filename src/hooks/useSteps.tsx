@@ -5,6 +5,25 @@ export default function useSteps() {
   const [email, setEmail] = useState<string>('');
   const [phoneNumber, setPhoneNumber] = useState<number>();
 
+  type StateStep = { selected: boolean; completed: boolean };
+
+  const [stateStepOne, setStateStepOne] = useState<StateStep>({
+    selected: true,
+    completed: false,
+  });
+  const [stateStepTwo, setStateStepTwo] = useState<StateStep>({
+    selected: false,
+    completed: false,
+  });
+  const [stateStepThree, setStateStepThree] = useState<StateStep>({
+    selected: false,
+    completed: false,
+  });
+  const [stateStepFour, setStateStepFour] = useState<StateStep>({
+    selected: false,
+    completed: false,
+  });
+
   const fullOrder: {
     nameUser: string;
     emailUser: string;
@@ -13,10 +32,6 @@ export default function useSteps() {
     nameUser: name,
     emailUser: email,
     phoneNumberUser: phoneNumber,
-  };
-
-  const handleClickStep1 = (): void => {
-    console.log(fullOrder);
   };
 
   type Step = {
@@ -30,28 +45,43 @@ export default function useSteps() {
     {
       num: 1,
       title: 'Your info',
-      selected: true,
-      completed: false,
+      selected: stateStepOne.selected,
+      completed: stateStepOne.completed,
     },
     {
       num: 2,
       title: 'Select plan',
-      selected: false,
-      completed: false,
+      selected: stateStepTwo.selected,
+      completed: stateStepTwo.completed,
     },
     {
       num: 3,
       title: 'Add-ons',
-      selected: false,
-      completed: false,
+      selected: stateStepThree.selected,
+      completed: stateStepThree.completed,
     },
     {
       num: 4,
       title: 'Summary',
-      selected: false,
-      completed: false,
+      selected: stateStepFour.selected,
+      completed: stateStepFour.completed,
     },
   ];
+
+  const handleClickStep1 = (): void => {
+    // let res: boolean = false;
+    // const regexName = /^[a-zA-Z\s]+$/;
+    // const regexEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+    // if (regexName.test(name) && regexEmail.test(email)) {
+    //   res = true;
+    // }
+    // if (res) {
+    setStateStepOne({ selected: false, completed: true });
+    setStateStepTwo({ selected: true, completed: false });
+    console.log(steps);
+    //console.log(phoneNumber.toString.length);
+    // }
+  };
 
   return {
     steps,
