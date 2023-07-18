@@ -67,6 +67,6 @@ export default function StepsLayouts(props: MyProps) {
     );
   }
   if (props.steps[1].selected) {
-    return <h1>Step 2</h1>;
+    return <h1>Select your plan</h1>;
   }
 }
