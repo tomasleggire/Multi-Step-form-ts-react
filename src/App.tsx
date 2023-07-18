@@ -22,6 +22,7 @@ function App() {
       <StepsMain steps={steps} />
       <FormLayout>
         <StepsLayouts
+          steps={steps}
           name={name}
           setName={setName}
           email={email}
