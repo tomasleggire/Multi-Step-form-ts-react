@@ -1,5 +1,6 @@
 import React from 'react';
 import InputText from '../components/InputText';
+import PlanBillingOption from '../components/PlanBillingOption';
 import type { SetStateAction } from 'react';
 
 type Step = {
@@ -13,7 +14,6 @@ type Plan = {
   name: string;
   color: string;
   value: number;
-  selected: boolean;
 };
 
 interface MyProps {
@@ -26,7 +26,7 @@ interface MyProps {
   setPhoneNumber: React.Dispatch<SetStateAction<number>>;
   handleClickStep1: () => void;
   planBilling: Plan[];
-  setPlanValue: React.Dispatch<SetStateAction<number>>
+  setPlanValue: React.Dispatch<SetStateAction<number>>;
 }
 
 export default function StepsLayouts(props: MyProps) {
@@ -81,6 +81,17 @@ export default function StepsLayouts(props: MyProps) {
         <div>
           <h1>Select your plan</h1>
           <h3>You have the option monthly or yearly billing.</h3>
+          {props.planBilling.map((plan) => {
+            return (
+              <PlanBillingOption
+                key={plan.name}
+                name={plan.name}
+                color={plan.color}
+                value={plan.value}
+                setPlanValue={props.setPlanValue}
+              />
+            );
+          })}
         </div>
         <button className="form-btn" type="button">
           Next Step
