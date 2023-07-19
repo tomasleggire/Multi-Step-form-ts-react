@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { use, useState } from 'react';
 
 export default function useSteps() {
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [phoneNumber, setPhoneNumber] = useState<number>();
+  const [planValue, setPlanValue] = useState<number>(9);
 
   type StateStep = { selected: boolean; completed: boolean };
 
@@ -28,10 +29,12 @@ export default function useSteps() {
     nameUser: string;
     emailUser: string;
     phoneNumberUser: number;
+    plan: number;
   } = {
     nameUser: name,
     emailUser: email,
     phoneNumberUser: phoneNumber,
+    plan: planValue,
   };
 
   type Step = {
@@ -68,6 +71,34 @@ export default function useSteps() {
     },
   ];
 
+  type Plan = {
+    name: string;
+    color: string;
+    value: number;
+    selected: boolean;
+  };
+
+  const planBilling: Plan[] = [
+    {
+      name: 'Arcade',
+      color: 'orange',
+      value: 9,
+      selected: true,
+    },
+    {
+      name: 'Advanced',
+      color: 'red',
+      value: 12,
+      selected: false,
+    },
+    {
+      name: 'Pro',
+      color: 'blue',
+      value: 15,
+      selected: false,
+    },
+  ];
+
   const handleClickStep1 = (): void => {
     let res: boolean = false;
     const regexName = /^[a-zA-Z\s]+$/;
@@ -98,5 +129,7 @@ export default function useSteps() {
     phoneNumber,
     setPhoneNumber,
     handleClickStep1,
+    planBilling,
+    setPlanValue,
   };
 }

@@ -9,6 +9,13 @@ type Step = {
   completed: boolean;
 };
 
+type Plan = {
+  name: string;
+  color: string;
+  value: number;
+  selected: boolean;
+};
+
 interface MyProps {
   steps: Step[];
   name: string;
@@ -18,6 +25,8 @@ interface MyProps {
   phoneNumber: number;
   setPhoneNumber: React.Dispatch<SetStateAction<number>>;
   handleClickStep1: () => void;
+  planBilling: Plan[];
+  setPlanValue: React.Dispatch<SetStateAction<number>>
 }
 
 export default function StepsLayouts(props: MyProps) {
@@ -67,6 +76,16 @@ export default function StepsLayouts(props: MyProps) {
     );
   }
   if (props.steps[1].selected) {
-    return <h1>Select your plan</h1>;
+    return (
+      <>
+        <div>
+          <h1>Select your plan</h1>
+          <h3>You have the option monthly or yearly billing.</h3>
+        </div>
+        <button className="form-btn" type="button">
+          Next Step
+        </button>
+      </>
+    );
   }
 }
