@@ -1,6 +1,7 @@
 import React from 'react';
 import InputText from '../components/InputText';
 import PlanBillingOption from '../components/PlanBillingOption';
+import ToggleSwitch from '../components/ToggleSwitch';
 import type { SetStateAction } from 'react';
 
 type Step = {
@@ -94,6 +95,7 @@ export default function StepsLayouts(props: MyProps) {
               />
             );
           })}
+          <ToggleSwitch />
         </div>
         <button className="form-btn" type="button">
           Next Step

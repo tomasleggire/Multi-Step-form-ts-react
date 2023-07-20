@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 type StateStep = { selected: boolean; completed: boolean };
 
 type Step = {
@@ -61,12 +61,10 @@ export default function useSteps() {
     nameUser: string;
     emailUser: string;
     phoneNumberUser: number;
-    plan: number;
   } = {
     nameUser: name,
     emailUser: email,
     phoneNumberUser: phoneNumber,
-    plan: 9,
   };
 
   const steps: Step[] = [
@@ -125,7 +123,7 @@ export default function useSteps() {
     );
     newPlan[currentPlanIndex].selected = true;
     setPlanValue(newPlan);
-    console.log(planValue);
+    console.log(fullOrder);
   };
 
   return {

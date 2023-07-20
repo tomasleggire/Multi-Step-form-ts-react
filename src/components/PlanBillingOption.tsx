@@ -1,6 +1,5 @@
 import React from 'react';
 import '../styles/PlanBillingOption.css';
-import type { SetStateAction } from 'react';
 
 interface MyProps {
   key: string;
