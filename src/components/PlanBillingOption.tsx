@@ -7,14 +7,17 @@ interface MyProps {
   name: string;
   color: string;
   value: number;
-  setPlanValue: React.Dispatch<SetStateAction<number>>;
+  selected: boolean;
+  changePlanValue: (currentValue: string) => void;
 }
 
 export default function PlanBillingOption(props: MyProps) {
   return (
     <div
-      className="main-div-billing-option"
-      onClick={() => props.setPlanValue(props.value)}
+      className={`main-div-billing-option ${
+        props.selected && 'option-selected'
+      }`}
+      onClick={() => props.changePlanValue(props.name)}
     >
       <div
         className="icon-billing-option"

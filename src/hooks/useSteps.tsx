@@ -1,12 +1,44 @@
 import { useState } from 'react';
+type StateStep = { selected: boolean; completed: boolean };
+
+type Step = {
+  num: number;
+  title: string;
+  selected: boolean;
+  completed: boolean;
+};
+
+type Plan = {
+  name: string;
+  color: string;
+  value: number;
+  selected: boolean;
+};
 
 export default function useSteps() {
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [phoneNumber, setPhoneNumber] = useState<number>();
-  const [planValue, setPlanValue] = useState<number>(9);
-
-  type StateStep = { selected: boolean; completed: boolean };
+  const [planValue, setPlanValue] = useState<Array<Plan>>([
+    {
+      name: 'Arcade',
+      color: 'orange',
+      value: 9,
+      selected: true,
+    },
+    {
+      name: 'Advanced',
+      color: 'red',
+      value: 12,
+      selected: false,
+    },
+    {
+      name: 'Pro',
+      color: 'blue',
+      value: 15,
+      selected: false,
+    },
+  ]);
 
   const [stateStepOne, setStateStepOne] = useState<StateStep>({
     selected: true,
@@ -34,14 +66,7 @@ export default function useSteps() {
     nameUser: name,
     emailUser: email,
     phoneNumberUser: phoneNumber,
-    plan: planValue,
-  };
-
-  type Step = {
-    num: number;
-    title: string;
-    selected: boolean;
-    completed: boolean;
+    plan: 9,
   };
 
   const steps: Step[] = [
@@ -71,30 +96,6 @@ export default function useSteps() {
     },
   ];
 
-  type Plan = {
-    name: string;
-    color: string;
-    value: number;
-  };
-
-  const planBilling: Plan[] = [
-    {
-      name: 'Arcade',
-      color: 'orange',
-      value: 9,
-    },
-    {
-      name: 'Advanced',
-      color: 'red',
-      value: 12,
-    },
-    {
-      name: 'Pro',
-      color: 'blue',
-      value: 15,
-    },
-  ];
-
   const handleClickStep1 = (): void => {
     // let res: boolean = false;
     // const regexName = /^[a-zA-Z\s]+$/;
@@ -116,6 +117,17 @@ export default function useSteps() {
     // }
   };
 
+  const changePlanValue = (currentPlan: string): void => {
+    const newPlan = [...planValue];
+    newPlan.forEach((plan) => (plan.selected = false));
+    const currentPlanIndex = newPlan.findIndex(
+      (plan) => plan.name == currentPlan
+    );
+    newPlan[currentPlanIndex].selected = true;
+    setPlanValue(newPlan);
+    console.log(planValue);
+  };
+
   return {
     steps,
     name,
@@ -125,7 +137,7 @@ export default function useSteps() {
     phoneNumber,
     setPhoneNumber,
     handleClickStep1,
-    planBilling,
-    setPlanValue,
+    planValue,
+    changePlanValue,
   };
 }

@@ -15,8 +15,8 @@ function App() {
     phoneNumber,
     setPhoneNumber,
     handleClickStep1,
-    planBilling,
-    setPlanValue,
+    planValue,
+    changePlanValue,
   } = useSteps();
 
   return (
@@ -32,8 +32,8 @@ function App() {
           phoneNumber={phoneNumber}
           setPhoneNumber={setPhoneNumber}
           handleClickStep1={handleClickStep1}
-          planBilling={planBilling}
-          setPlanValue={setPlanValue}
+          planValue={planValue}
+          changePlanValue={changePlanValue}
         />
       </FormLayout>
     </div>

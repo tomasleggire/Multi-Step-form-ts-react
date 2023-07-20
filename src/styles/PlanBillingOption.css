@@ -1,7 +1,7 @@
 .main-div-billing-option {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   max-width: 500px;
-  border: 1px solid var(--gray);
+  border: 2px solid var(--gray);
   min-height: auto;
   margin-bottom: 20px;
   cursor: pointer;
@@ -35,4 +35,8 @@
 .billing-option-value {
   color: var(--gray);
   font-size: 14px;
+}
+
+.option-selected {
+  border: 2px solid var(--principal-text);
 }

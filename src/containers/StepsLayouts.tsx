@@ -14,6 +14,7 @@ type Plan = {
   name: string;
   color: string;
   value: number;
+  selected: boolean;
 };
 
 interface MyProps {
@@ -25,8 +26,8 @@ interface MyProps {
   phoneNumber: number;
   setPhoneNumber: React.Dispatch<SetStateAction<number>>;
   handleClickStep1: () => void;
-  planBilling: Plan[];
-  setPlanValue: React.Dispatch<SetStateAction<number>>;
+  planValue: Plan[];
+  changePlanValue: (currentValue: string) => void;
 }
 
 export default function StepsLayouts(props: MyProps) {
@@ -81,14 +82,15 @@ export default function StepsLayouts(props: MyProps) {
         <div>
           <h1>Select your plan</h1>
           <h3>You have the option monthly or yearly billing.</h3>
-          {props.planBilling.map((plan) => {
+          {props.planValue.map((plan) => {
             return (
               <PlanBillingOption
                 key={plan.name}
                 name={plan.name}
                 color={plan.color}
                 value={plan.value}
-                setPlanValue={props.setPlanValue}
+                selected={plan.selected}
+                changePlanValue={props.changePlanValue}
               />
             );
           })}
