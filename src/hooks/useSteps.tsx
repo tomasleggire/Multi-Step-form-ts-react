@@ -16,6 +16,13 @@ type Plan = {
   date: string;
 };
 
+type FullOrder = {
+  nameUser: string;
+  emailUser: string;
+  phoneNumberUser: number;
+  planValue: Plan;
+};
+
 export default function useSteps() {
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
@@ -45,6 +52,14 @@ export default function useSteps() {
   ]);
 
   const [toggleStateSwitch, setToggleStateSwitch] = useState<boolean>(true);
+
+  const [fullOrderPlanValue, setFullOrderPlanValue] = useState<Plan>({
+    name: 'Arcade',
+    color: 'orange',
+    value: 9,
+    selected: true,
+    date: 'Month',
+  });
 
   const [stateStepOne, setStateStepOne] = useState<StateStep>({
     selected: true,
@@ -83,14 +98,16 @@ export default function useSteps() {
     }
   }, [toggleStateSwitch]);
 
-  const fullOrder: {
-    nameUser: string;
-    emailUser: string;
-    phoneNumberUser: number;
-  } = {
+  useEffect(() => {
+    const newPlanValue = planValue.filter((plan) => plan.selected === true);
+    setFullOrderPlanValue(newPlanValue[0]);
+  }, [planValue]);
+
+  const fullOrder: FullOrder = {
     nameUser: name,
     emailUser: email,
     phoneNumberUser: phoneNumber,
+    planValue: fullOrderPlanValue,
   };
 
   const steps: Step[] = [
@@ -121,24 +138,24 @@ export default function useSteps() {
   ];
 
   const handleClickStep1 = (): void => {
-    // let res: boolean = false;
-    // const regexName = /^[a-zA-Z\s]+$/;
-    // const regexEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-    // const numberTest = phoneNumber?.toString();
-    // if (
-    //   regexName.test(name) &&
-    //   regexEmail.test(email) &&
-    //   numberTest?.length == 10
-    // ) {
-    //   res = true;
-    // } else {
-    //   console.log('Alguno de los campos del step uno es invalido');
-    // }
-    // if (res) {
-    setStateStepOne({ selected: false, completed: true });
-    setStateStepTwo({ selected: true, completed: false });
-    console.log(fullOrder);
-    // }
+    let res: boolean = false;
+    const regexName = /^[a-zA-Z\s]+$/;
+    const regexEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+    const numberTest = phoneNumber?.toString();
+    if (
+      regexName.test(name) &&
+      regexEmail.test(email) &&
+      numberTest?.length == 10
+    ) {
+      res = true;
+    } else {
+      console.log('Alguno de los campos del step uno es invalido');
+    }
+    if (res) {
+      setStateStepOne({ selected: false, completed: true });
+      setStateStepTwo({ selected: true, completed: false });
+      console.log(fullOrder);
+    }
   };
 
   const changePlanValue = (currentPlan: string): void => {
@@ -149,12 +166,12 @@ export default function useSteps() {
     );
     newPlan[currentPlanIndex].selected = true;
     setPlanValue(newPlan);
-    console.log(planValue);
+    console.log(fullOrder);
   };
 
   const handleToggleSwitch = (): void => {
     setToggleStateSwitch(!toggleStateSwitch);
-    console.log(planValue);
+    console.log(fullOrder);
   };
 
   return {
@@ -170,5 +187,6 @@ export default function useSteps() {
     changePlanValue,
     toggleStateSwitch,
     handleToggleSwitch,
+    fullOrder,
   };
 }

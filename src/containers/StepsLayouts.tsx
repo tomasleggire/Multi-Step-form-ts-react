@@ -18,6 +18,12 @@ type Plan = {
   selected: boolean;
   date: string;
 };
+type FullOrder = {
+  nameUser: string;
+  emailUser: string;
+  phoneNumberUser: number;
+  planValue: Plan;
+};
 
 interface MyProps {
   steps: Step[];
@@ -32,6 +38,7 @@ interface MyProps {
   changePlanValue: (currentValue: string) => void;
   toggleStateSwitch: boolean;
   handleToggleSwitch: () => void;
+  fullOrder: FullOrder;
 }
 
 export default function StepsLayouts(props: MyProps) {
@@ -104,7 +111,11 @@ export default function StepsLayouts(props: MyProps) {
             handleToggleSwitch={props.handleToggleSwitch}
           />
         </div>
-        <button className="form-btn" type="button">
+        <button
+          className="form-btn"
+          type="button"
+          onClick={() => console.log(props.fullOrder)}
+        >
           Next Step
         </button>
       </>
