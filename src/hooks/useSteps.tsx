@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 type StateStep = { selected: boolean; completed: boolean };
 
 type Step = {
@@ -39,6 +39,8 @@ export default function useSteps() {
       selected: false,
     },
   ]);
+
+  const [toggleStateSwitch, setToggleStateSwitch] = useState<boolean>(true);
 
   const [stateStepOne, setStateStepOne] = useState<StateStep>({
     selected: true,
@@ -126,6 +128,11 @@ export default function useSteps() {
     console.log(fullOrder);
   };
 
+  const handleToggleSwitch = (): void => {
+    setToggleStateSwitch(!toggleStateSwitch);
+    console.log('Toggle State:', toggleStateSwitch ? 'Yearly' : 'Monthly');
+  };
+
   return {
     steps,
     name,
@@ -137,5 +144,7 @@ export default function useSteps() {
     handleClickStep1,
     planValue,
     changePlanValue,
+    toggleStateSwitch,
+    handleToggleSwitch,
   };
 }

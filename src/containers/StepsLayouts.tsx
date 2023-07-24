@@ -29,6 +29,8 @@ interface MyProps {
   handleClickStep1: () => void;
   planValue: Plan[];
   changePlanValue: (currentValue: string) => void;
+  toggleStateSwitch: boolean;
+  handleToggleSwitch: () => void;
 }
 
 export default function StepsLayouts(props: MyProps) {
@@ -95,7 +97,10 @@ export default function StepsLayouts(props: MyProps) {
               />
             );
           })}
-          <ToggleSwitch />
+          <ToggleSwitch
+            toggleStateSwitch={props.toggleStateSwitch}
+            handleToggleSwitch={props.handleToggleSwitch}
+          />
         </div>
         <button className="form-btn" type="button">
           Next Step

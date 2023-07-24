@@ -17,6 +17,8 @@ function App() {
     handleClickStep1,
     planValue,
     changePlanValue,
+    toggleStateSwitch,
+    handleToggleSwitch,
   } = useSteps();
 
   return (
@@ -34,6 +36,8 @@ function App() {
           handleClickStep1={handleClickStep1}
           planValue={planValue}
           changePlanValue={changePlanValue}
+          toggleStateSwitch={toggleStateSwitch}
+          handleToggleSwitch={handleToggleSwitch}
         />
       </FormLayout>
     </div>
