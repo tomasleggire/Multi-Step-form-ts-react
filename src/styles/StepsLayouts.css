@@ -1,0 +1,10 @@
+.btn-container {
+  display: flex;
+}
+
+.back {
+  margin: 0 0 auto 0;
+  background-color: transparent;
+  color: var(--gray);
+  font-weight: 600;
+}

@@ -138,24 +138,28 @@ export default function useSteps() {
   ];
 
   const handleClickStep1 = (): void => {
-    let res: boolean = false;
-    const regexName = /^[a-zA-Z\s]+$/;
-    const regexEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-    const numberTest = phoneNumber?.toString();
-    if (
-      regexName.test(name) &&
-      regexEmail.test(email) &&
-      numberTest?.length == 10
-    ) {
-      res = true;
-    } else {
-      console.log('Alguno de los campos del step uno es invalido');
-    }
-    if (res) {
-      setStateStepOne({ selected: false, completed: true });
-      setStateStepTwo({ selected: true, completed: false });
-      console.log(fullOrder);
-    }
+    // let res: boolean = false;
+    // const regexName = /^[a-zA-Z\s]+$/;
+    // const regexEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+    // const numberTest = phoneNumber?.toString();
+    // if (
+    //   regexName.test(name) &&
+    //   regexEmail.test(email) &&
+    //   numberTest?.length == 10
+    // ) {
+    //   res = true;
+    // } else {
+    //   console.log('Alguno de los campos del step uno es invalido');
+    // }
+    // if (res) {
+    setStateStepOne({ selected: false, completed: true });
+    setStateStepTwo({ selected: true, completed: false });
+    // }
+  };
+
+  const handleBackClickStep1 = (): void => {
+    setStateStepOne({ selected: true, completed: false });
+    setStateStepTwo({ selected: false, completed: false });
   };
 
   const changePlanValue = (currentPlan: string): void => {
@@ -166,12 +170,10 @@ export default function useSteps() {
     );
     newPlan[currentPlanIndex].selected = true;
     setPlanValue(newPlan);
-    console.log(fullOrder);
   };
 
   const handleToggleSwitch = (): void => {
     setToggleStateSwitch(!toggleStateSwitch);
-    console.log(fullOrder);
   };
 
   return {
@@ -188,5 +190,6 @@ export default function useSteps() {
     toggleStateSwitch,
     handleToggleSwitch,
     fullOrder,
+    handleBackClickStep1,
   };
 }

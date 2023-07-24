@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/StepsLayouts.css';
 import InputText from '../components/InputText';
 import PlanBillingOption from '../components/PlanBillingOption';
 import ToggleSwitch from '../components/ToggleSwitch';
@@ -39,6 +40,7 @@ interface MyProps {
   toggleStateSwitch: boolean;
   handleToggleSwitch: () => void;
   fullOrder: FullOrder;
+  handleBackClickStep1: () => void;
 }
 
 export default function StepsLayouts(props: MyProps) {
@@ -111,13 +113,18 @@ export default function StepsLayouts(props: MyProps) {
             handleToggleSwitch={props.handleToggleSwitch}
           />
         </div>
-        <button
-          className="form-btn"
-          type="button"
-          onClick={() => console.log(props.fullOrder)}
-        >
-          Next Step
-        </button>
+        <div className="btn-container">
+          <button
+            className="form-btn back"
+            type="button"
+            onClick={props.handleBackClickStep1}
+          >
+            Go Back
+          </button>
+          <button className="form-btn" type="button">
+            Next Step
+          </button>
+        </div>
       </>
     );
   }

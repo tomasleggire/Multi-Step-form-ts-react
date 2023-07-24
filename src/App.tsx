@@ -20,6 +20,7 @@ function App() {
     toggleStateSwitch,
     handleToggleSwitch,
     fullOrder,
+    handleBackClickStep1,
   } = useSteps();
 
   return (
@@ -40,6 +41,7 @@ function App() {
           toggleStateSwitch={toggleStateSwitch}
           handleToggleSwitch={handleToggleSwitch}
           fullOrder={fullOrder}
+          handleBackClickStep1={handleBackClickStep1}
         />
       </FormLayout>
     </div>
