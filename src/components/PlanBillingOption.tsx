@@ -8,6 +8,7 @@ interface MyProps {
   value: number;
   selected: boolean;
   changePlanValue: (currentValue: string) => void;
+  date: string;
 }
 
 export default function PlanBillingOption(props: MyProps) {
@@ -24,7 +25,9 @@ export default function PlanBillingOption(props: MyProps) {
       ></div>
       <div className="billing-option-text">
         <p className="billing-option-name">{props.name}</p>
-        <p className="billing-option-value">${props.value}/Month</p>
+        <p className="billing-option-value">
+          ${props.value}/{props.date}
+        </p>
       </div>
     </div>
   );

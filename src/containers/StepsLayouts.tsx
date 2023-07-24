@@ -16,6 +16,7 @@ type Plan = {
   color: string;
   value: number;
   selected: boolean;
+  date: string;
 };
 
 interface MyProps {
@@ -94,6 +95,7 @@ export default function StepsLayouts(props: MyProps) {
                 value={plan.value}
                 selected={plan.selected}
                 changePlanValue={props.changePlanValue}
+                date={plan.date}
               />
             );
           })}

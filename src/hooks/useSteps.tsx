@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 type StateStep = { selected: boolean; completed: boolean };
 
 type Step = {
@@ -13,6 +13,7 @@ type Plan = {
   color: string;
   value: number;
   selected: boolean;
+  date: string;
 };
 
 export default function useSteps() {
@@ -25,18 +26,21 @@ export default function useSteps() {
       color: 'orange',
       value: 9,
       selected: true,
+      date: 'Month',
     },
     {
       name: 'Advanced',
       color: 'red',
       value: 12,
       selected: false,
+      date: 'Month',
     },
     {
       name: 'Pro',
       color: 'blue',
       value: 15,
       selected: false,
+      date: 'Month',
     },
   ]);
 
@@ -58,6 +62,26 @@ export default function useSteps() {
     selected: false,
     completed: false,
   });
+
+  useEffect(() => {
+    if (toggleStateSwitch) {
+      const newPlan = [...planValue];
+      newPlan.forEach((plan) => {
+        plan.date = 'Month';
+      });
+      newPlan[0].value = 9;
+      newPlan[1].value = 12;
+      newPlan[2].value = 15;
+      setPlanValue(newPlan);
+    } else {
+      const newPlan = [...planValue];
+      newPlan.forEach((plan) => {
+        plan.date = 'Year';
+        plan.value = plan.value * 10 - 1;
+      });
+      setPlanValue(newPlan);
+    }
+  }, [toggleStateSwitch]);
 
   const fullOrder: {
     nameUser: string;
@@ -125,12 +149,12 @@ export default function useSteps() {
     );
     newPlan[currentPlanIndex].selected = true;
     setPlanValue(newPlan);
-    console.log(fullOrder);
+    console.log(planValue);
   };
 
   const handleToggleSwitch = (): void => {
     setToggleStateSwitch(!toggleStateSwitch);
-    console.log('Toggle State:', toggleStateSwitch ? 'Yearly' : 'Monthly');
+    console.log(planValue);
   };
 
   return {
