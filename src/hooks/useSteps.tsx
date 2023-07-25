@@ -162,6 +162,11 @@ export default function useSteps() {
     setStateStepTwo({ selected: false, completed: false });
   };
 
+  const handleClickStep2 = (): void => {
+    setStateStepTwo({ selected: false, completed: true });
+    setStateStepThree({ selected: true, completed: false });
+  };
+
   const changePlanValue = (currentPlan: string): void => {
     const newPlan = [...planValue];
     newPlan.forEach((plan) => (plan.selected = false));
@@ -191,5 +196,6 @@ export default function useSteps() {
     handleToggleSwitch,
     fullOrder,
     handleBackClickStep1,
+    handleClickStep2,
   };
 }

@@ -41,6 +41,7 @@ interface MyProps {
   handleToggleSwitch: () => void;
   fullOrder: FullOrder;
   handleBackClickStep1: () => void;
+  handleClickStep2: () => void;
 }
 
 export default function StepsLayouts(props: MyProps) {
@@ -121,9 +122,23 @@ export default function StepsLayouts(props: MyProps) {
           >
             Go Back
           </button>
-          <button className="form-btn" type="button">
+          <button
+            className="form-btn"
+            type="button"
+            onClick={props.handleClickStep2}
+          >
             Next Step
           </button>
+        </div>
+      </>
+    );
+  }
+  if (props.steps[2].selected) {
+    return (
+      <>
+        <div>
+          <h1>Pick add-ons</h1>
+          <h3>Add-ons help enhance your gaming experience.</h3>
         </div>
       </>
     );
