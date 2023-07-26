@@ -3,6 +3,7 @@ import '../styles/StepsLayouts.css';
 import InputText from '../components/InputText';
 import PlanBillingOption from '../components/PlanBillingOption';
 import ToggleSwitch from '../components/ToggleSwitch';
+import CheckBox from '../components/CheckBox';
 import type { SetStateAction } from 'react';
 
 type Step = {
@@ -139,6 +140,7 @@ export default function StepsLayouts(props: MyProps) {
         <div>
           <h1>Pick add-ons</h1>
           <h3>Add-ons help enhance your gaming experience.</h3>
+          <CheckBox title="Online service" />
         </div>
       </>
     );
