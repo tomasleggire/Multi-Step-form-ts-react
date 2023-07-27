@@ -3,6 +3,8 @@ import '../styles/CheckBox.css';
 
 interface MyProps {
   title: string;
+  description: string;
+  price: number;
 }
 
 export default function CheckBox(props: MyProps) {
@@ -15,11 +17,13 @@ export default function CheckBox(props: MyProps) {
   };
 
   return (
-    <div>
-      <label>
-        <input type="checkbox" onChange={handleChange} />
-        {props.title}
-      </label>
+    <div className="main-checkbox">
+      <input type="checkbox" onChange={handleChange} />
+      <div className="texts-ons">
+        <p className="ons-name">{props.title}</p>
+        <p className="ons-description">{props.description}</p>
+      </div>
+      <p className="ons-price">+{props.price}/month</p>
     </div>
   );
 }

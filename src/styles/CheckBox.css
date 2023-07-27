@@ -1,0 +1,55 @@
+.main-checkbox {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 500px;
+  outline: auto;
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  align-items: center;
+  padding:15px;
+  margin-bottom: 25px;
+}
+
+.ons-name {
+  color: var(--principal-text);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.ons-description {
+  color: var(--gray);
+  font-size: 14px;
+}
+
+.ons-price {
+  color: var(--principal-text);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 660px) {
+  .main-checkbox {
+    margin-bottom: 15px;
+    padding: 15px 10px;
+  }
+
+  
+  .ons-name {
+    font-size: 14px;
+  }
+
+  .ons-description {
+    font-size: 12px;
+  }
+  .ons-price {
+   
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .main-checkbox {
+    gap: 10px;
+  }
+
+}

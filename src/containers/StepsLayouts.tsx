@@ -140,7 +140,11 @@ export default function StepsLayouts(props: MyProps) {
         <div>
           <h1>Pick add-ons</h1>
           <h3>Add-ons help enhance your gaming experience.</h3>
-          <CheckBox title="Online service" />
+          <CheckBox
+            title="Online service"
+            description="Access to multiplayer games"
+            price={55}
+          />
         </div>
       </>
     );

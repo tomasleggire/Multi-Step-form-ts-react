@@ -62,7 +62,7 @@ export default function useSteps() {
   });
 
   const [stateStepOne, setStateStepOne] = useState<StateStep>({
-    selected: true,
+    selected: false,
     completed: false,
   });
   const [stateStepTwo, setStateStepTwo] = useState<StateStep>({
@@ -70,7 +70,7 @@ export default function useSteps() {
     completed: false,
   });
   const [stateStepThree, setStateStepThree] = useState<StateStep>({
-    selected: false,
+    selected: true,
     completed: false,
   });
   const [stateStepFour, setStateStepFour] = useState<StateStep>({
@@ -138,23 +138,23 @@ export default function useSteps() {
   ];
 
   const handleClickStep1 = (): void => {
-    // let res: boolean = false;
-    // const regexName = /^[a-zA-Z\s]+$/;
-    // const regexEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-    // const numberTest = phoneNumber?.toString();
-    // if (
-    //   regexName.test(name) &&
-    //   regexEmail.test(email) &&
-    //   numberTest?.length == 10
-    // ) {
-    //   res = true;
-    // } else {
-    //   console.log('Alguno de los campos del step uno es invalido');
-    // }
-    // if (res) {
-    setStateStepOne({ selected: false, completed: true });
-    setStateStepTwo({ selected: true, completed: false });
-    // }
+    let res: boolean = false;
+    const regexName = /^[a-zA-Z\s]+$/;
+    const regexEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+    const numberTest = phoneNumber?.toString();
+    if (
+      regexName.test(name) &&
+      regexEmail.test(email) &&
+      numberTest?.length == 10
+    ) {
+      res = true;
+    } else {
+      console.log('Alguno de los campos del step uno es invalido');
+    }
+    if (res) {
+      setStateStepOne({ selected: false, completed: true });
+      setStateStepTwo({ selected: true, completed: false });
+    }
   };
 
   const handleBackClickStep1 = (): void => {
