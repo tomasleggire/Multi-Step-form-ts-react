@@ -7,14 +7,15 @@ interface MyProps {
   description: string;
   price: number;
   selected: boolean;
+  changeValueCheckBox: (x: string, y: boolean) => void;
 }
 
 export default function CheckBox(props: MyProps) {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      console.log('Activo');
+      props.changeValueCheckBox(props.title, true);
     } else {
-      console.log('No Selected');
+      props.changeValueCheckBox(props.title, false);
     }
   };
 

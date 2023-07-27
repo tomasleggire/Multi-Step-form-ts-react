@@ -51,6 +51,7 @@ interface MyProps {
   handleBackClickStep1: () => void;
   handleClickStep2: () => void;
   checkBoxItems: CheckInput[];
+  changeValueCheckBox: (x: string, y: boolean) => void;
 }
 
 export default function StepsLayouts(props: MyProps) {
@@ -156,6 +157,7 @@ export default function StepsLayouts(props: MyProps) {
                 description={item.description}
                 price={item.price}
                 selected={item.selected}
+                changeValueCheckBox={props.changeValueCheckBox}
               />
             );
           })}

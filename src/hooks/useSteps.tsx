@@ -209,6 +209,18 @@ export default function useSteps() {
     setToggleStateSwitch(!toggleStateSwitch);
   };
 
+  const changeValueCheckBox = (
+    curentItem: string,
+    newValueToCurrentItem: boolean
+  ): void => {
+    const newValues = [...checkBoxItems];
+    const currentItemToChange = newValues.findIndex(
+      (item) => item.title === curentItem
+    );
+    newValues[currentItemToChange].selected = newValueToCurrentItem;
+    setCheckBoxItems(newValues);
+  };
+
   return {
     steps,
     name,
@@ -226,5 +238,6 @@ export default function useSteps() {
     handleBackClickStep1,
     handleClickStep2,
     checkBoxItems,
+    changeValueCheckBox,
   };
 }
