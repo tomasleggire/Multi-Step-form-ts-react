@@ -1,13 +1,14 @@
 .main-checkbox {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   max-width: 500px;
-  outline: auto;
+  border: 2px solid var(--gray);
   display: flex;
   justify-content: flex-start;
   gap: 20px;
   align-items: center;
   padding:15px;
   margin-bottom: 25px;
+  border-radius: 5px;
 }
 
 .ons-name {
@@ -25,6 +26,11 @@
   color: var(--principal-text);
   font-size: 14px;
   font-weight: 500;
+  margin: 0 0 0 auto;
+}
+
+.check-selected {
+  border: 2px solid var(--principal-text);
 }
 
 @media only screen and (max-width: 660px) {

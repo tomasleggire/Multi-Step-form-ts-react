@@ -22,6 +22,7 @@ function App() {
     fullOrder,
     handleBackClickStep1,
     handleClickStep2,
+    checkBoxItems,
   } = useSteps();
 
   return (
@@ -44,6 +45,7 @@ function App() {
           fullOrder={fullOrder}
           handleBackClickStep1={handleBackClickStep1}
           handleClickStep2={handleClickStep2}
+          checkBoxItems={checkBoxItems}
         />
       </FormLayout>
     </div>

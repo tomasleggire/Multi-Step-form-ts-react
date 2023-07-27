@@ -23,6 +23,13 @@ type FullOrder = {
   planValue: Plan;
 };
 
+type CheckInput = {
+  title: string;
+  description: string;
+  price: number;
+  selected: boolean;
+};
+
 export default function useSteps() {
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
@@ -48,6 +55,27 @@ export default function useSteps() {
       value: 15,
       selected: false,
       date: 'Month',
+    },
+  ]);
+
+  const [checkBoxItems, setCheckBoxItems] = useState<Array<CheckInput>>([
+    {
+      title: 'Online service',
+      description: 'Access to multiplayer games.',
+      price: 1,
+      selected: false,
+    },
+    {
+      title: 'Larger storage',
+      description: 'Extra 1TB of cloud save.',
+      price: 2,
+      selected: false,
+    },
+    {
+      title: 'Customizable profile',
+      description: 'Custom themes for your profile',
+      price: 2,
+      selected: false,
     },
   ]);
 
@@ -197,5 +225,6 @@ export default function useSteps() {
     fullOrder,
     handleBackClickStep1,
     handleClickStep2,
+    checkBoxItems,
   };
 }

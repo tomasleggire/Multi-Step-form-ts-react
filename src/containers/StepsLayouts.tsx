@@ -27,6 +27,13 @@ type FullOrder = {
   planValue: Plan;
 };
 
+type CheckInput = {
+  title: string;
+  description: string;
+  price: number;
+  selected: boolean;
+};
+
 interface MyProps {
   steps: Step[];
   name: string;
@@ -43,6 +50,7 @@ interface MyProps {
   fullOrder: FullOrder;
   handleBackClickStep1: () => void;
   handleClickStep2: () => void;
+  checkBoxItems: CheckInput[];
 }
 
 export default function StepsLayouts(props: MyProps) {
@@ -140,11 +148,17 @@ export default function StepsLayouts(props: MyProps) {
         <div>
           <h1>Pick add-ons</h1>
           <h3>Add-ons help enhance your gaming experience.</h3>
-          <CheckBox
-            title="Online service"
-            description="Access to multiplayer games"
-            price={55}
-          />
+          {props.checkBoxItems.map((item) => {
+            return (
+              <CheckBox
+                key={item.title}
+                title={item.title}
+                description={item.description}
+                price={item.price}
+                selected={item.selected}
+              />
+            );
+          })}
         </div>
       </>
     );

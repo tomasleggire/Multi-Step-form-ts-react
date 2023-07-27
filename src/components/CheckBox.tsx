@@ -2,9 +2,11 @@ import React, { ChangeEvent } from 'react';
 import '../styles/CheckBox.css';
 
 interface MyProps {
+  key: string;
   title: string;
   description: string;
   price: number;
+  selected: boolean;
 }
 
 export default function CheckBox(props: MyProps) {
@@ -17,7 +19,7 @@ export default function CheckBox(props: MyProps) {
   };
 
   return (
-    <div className="main-checkbox">
+    <div className={`main-checkbox ${props.selected && 'check-selected'}`}>
       <input type="checkbox" onChange={handleChange} />
       <div className="texts-ons">
         <p className="ons-name">{props.title}</p>
