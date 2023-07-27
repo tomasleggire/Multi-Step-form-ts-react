@@ -24,6 +24,8 @@ function App() {
     handleClickStep2,
     checkBoxItems,
     changeValueCheckBox,
+    handleClickStep3,
+    handleBackClickStep2,
   } = useSteps();
 
   return (
@@ -48,6 +50,8 @@ function App() {
           handleClickStep2={handleClickStep2}
           checkBoxItems={checkBoxItems}
           changeValueCheckBox={changeValueCheckBox}
+          handleClickStep3={handleClickStep3}
+          handleBackClickStep2={handleBackClickStep2}
         />
       </FormLayout>
     </div>

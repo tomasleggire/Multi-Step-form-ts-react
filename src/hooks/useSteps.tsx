@@ -16,18 +16,18 @@ type Plan = {
   date: string;
 };
 
-type FullOrder = {
-  nameUser: string;
-  emailUser: string;
-  phoneNumberUser: number;
-  planValue: Plan;
-};
-
 type CheckInput = {
   title: string;
   description: string;
   price: number;
   selected: boolean;
+};
+type FullOrder = {
+  nameUser: string;
+  emailUser: string;
+  phoneNumberUser: number;
+  planValue: Plan;
+  addOns: CheckInput[];
 };
 
 export default function useSteps() {
@@ -90,7 +90,7 @@ export default function useSteps() {
   });
 
   const [stateStepOne, setStateStepOne] = useState<StateStep>({
-    selected: false,
+    selected: true,
     completed: false,
   });
   const [stateStepTwo, setStateStepTwo] = useState<StateStep>({
@@ -98,7 +98,7 @@ export default function useSteps() {
     completed: false,
   });
   const [stateStepThree, setStateStepThree] = useState<StateStep>({
-    selected: true,
+    selected: false,
     completed: false,
   });
   const [stateStepFour, setStateStepFour] = useState<StateStep>({
@@ -136,6 +136,7 @@ export default function useSteps() {
     emailUser: email,
     phoneNumberUser: phoneNumber,
     planValue: fullOrderPlanValue,
+    addOns: checkBoxItems,
   };
 
   const steps: Step[] = [
@@ -183,6 +184,7 @@ export default function useSteps() {
       setStateStepOne({ selected: false, completed: true });
       setStateStepTwo({ selected: true, completed: false });
     }
+    console.log(fullOrder);
   };
 
   const handleBackClickStep1 = (): void => {
@@ -193,6 +195,7 @@ export default function useSteps() {
   const handleClickStep2 = (): void => {
     setStateStepTwo({ selected: false, completed: true });
     setStateStepThree({ selected: true, completed: false });
+    console.log(fullOrder);
   };
 
   const changePlanValue = (currentPlan: string): void => {
@@ -207,6 +210,18 @@ export default function useSteps() {
 
   const handleToggleSwitch = (): void => {
     setToggleStateSwitch(!toggleStateSwitch);
+  };
+
+  const handleClickStep3 = (): void => {
+    setStateStepThree({ selected: false, completed: true });
+    setStateStepFour({ selected: true, completed: false });
+    console.log(fullOrder);
+  };
+
+  const handleBackClickStep2 = (): void => {
+    setStateStepTwo({ selected: true, completed: false });
+    setStateStepThree({ selected: false, completed: false });
+    console.log(fullOrder);
   };
 
   const changeValueCheckBox = (
@@ -239,5 +254,7 @@ export default function useSteps() {
     handleClickStep2,
     checkBoxItems,
     changeValueCheckBox,
+    handleClickStep3,
+    handleBackClickStep2,
   };
 }

@@ -52,6 +52,8 @@ interface MyProps {
   handleClickStep2: () => void;
   checkBoxItems: CheckInput[];
   changeValueCheckBox: (x: string, y: boolean) => void;
+  handleClickStep3: () => void;
+  handleBackClickStep2: () => void;
 }
 
 export default function StepsLayouts(props: MyProps) {
@@ -161,6 +163,22 @@ export default function StepsLayouts(props: MyProps) {
               />
             );
           })}
+        </div>
+        <div className="btn-container">
+          <button
+            className="form-btn back"
+            type="button"
+            onClick={props.handleBackClickStep2}
+          >
+            Go Back
+          </button>
+          <button
+            className="form-btn"
+            type="button"
+            onClick={props.handleClickStep3}
+          >
+            Next Step
+          </button>
         </div>
       </>
     );
