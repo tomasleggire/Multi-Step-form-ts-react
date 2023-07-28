@@ -183,4 +183,14 @@ export default function StepsLayouts(props: MyProps) {
       </>
     );
   }
+  if (props.steps[3].selected) {
+    return (
+      <>
+        <div>
+          <h1>Finishing up</h1>
+          <h3>Double-check everything looks OK before confirming.</h3>
+        </div>
+      </>
+    );
+  }
 }
