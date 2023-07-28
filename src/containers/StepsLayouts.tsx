@@ -4,6 +4,7 @@ import InputText from '../components/InputText';
 import PlanBillingOption from '../components/PlanBillingOption';
 import ToggleSwitch from '../components/ToggleSwitch';
 import CheckBox from '../components/CheckBox';
+import Finishing from '../containers/Finishing';
 import type { SetStateAction } from 'react';
 
 type Step = {
@@ -20,18 +21,18 @@ type Plan = {
   selected: boolean;
   date: string;
 };
-type FullOrder = {
-  nameUser: string;
-  emailUser: string;
-  phoneNumberUser: number;
-  planValue: Plan;
-};
-
 type CheckInput = {
   title: string;
   description: string;
   price: number;
   selected: boolean;
+};
+type FullOrder = {
+  nameUser: string;
+  emailUser: string;
+  phoneNumberUser: number;
+  planValue: Plan;
+  addOns: CheckInput[];
 };
 
 interface MyProps {
@@ -189,6 +190,7 @@ export default function StepsLayouts(props: MyProps) {
         <div>
           <h1>Finishing up</h1>
           <h3>Double-check everything looks OK before confirming.</h3>
+          <Finishing fullOrder={props.fullOrder} />
         </div>
       </>
     );
