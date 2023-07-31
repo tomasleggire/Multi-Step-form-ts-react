@@ -39,6 +39,18 @@ export default function Finishing(props: MyProps) {
           ${props.fullOrder.planValue.value}/{props.fullOrder.planValue.date}
         </span>
       </div>
+      <div className="div-ons-main-container">
+        {props.fullOrder.addOns.map((on) => {
+          if (!on.selected) {
+            return (
+              <div className="div-ons-main">
+                <span className="ons-title">{on.title}</span>
+                <span className="ons-price">+${on.price}/Mo</span>
+              </div>
+            );
+          }
+        })}
+      </div>
     </div>
   );
 }

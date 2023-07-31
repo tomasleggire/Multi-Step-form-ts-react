@@ -11,6 +11,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid var(--gray);
+  padding-bottom: 12px;
 }
 
 .finishin-plan-text {
@@ -32,6 +34,28 @@
 }
 
 .finishin-plan-value {
+  color: var(--principal-text);
+  font-weight: 700;
+}
+
+.div-ons-main-container {
+  border-bottom: 1px solid var(--gray);
+  padding-bottom: 12px;
+}
+
+.div-ons-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.ons-title {
+  color: var(--gray);
+  font-weight: 600;
+}
+
+.ons-price {
   color: var(--principal-text);
   font-weight: 700;
 }
