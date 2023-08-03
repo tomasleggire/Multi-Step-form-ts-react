@@ -51,6 +51,12 @@ export default function Finishing(props: MyProps) {
           }
         })}
       </div>
+      <div className="total-price-container">
+        <span className="total-price-date">Total</span>
+        <span className="total-price-bill">
+          ${props.fullOrder.planValue.value}/{props.fullOrder.planValue.date} +
+        </span>
+      </div>
     </div>
   );
 }

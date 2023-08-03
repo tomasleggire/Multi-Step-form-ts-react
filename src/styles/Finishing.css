@@ -59,3 +59,21 @@
   color: var(--principal-text);
   font-weight: 700;
 }
+
+.total-price-container {
+  margin-top: 10px;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-price-date {
+  color: var(--gray);
+  font-weight: 600;
+}
+
+.total-price-bill {
+  color: var(--principal-text);
+  font-weight: 700;
+}
