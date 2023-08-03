@@ -26,6 +26,13 @@ interface MyProps {
 }
 
 export default function Finishing(props: MyProps) {
+  const sumPrice = props.fullOrder.addOns.reduce((total, item) => {
+    if (item.selected) {
+      total += item.price;
+    }
+    return total;
+  }, 0);
+
   return (
     <div className="main-finishing">
       <div className="finishin-plan">
@@ -54,7 +61,8 @@ export default function Finishing(props: MyProps) {
       <div className="total-price-container">
         <span className="total-price-date">Total</span>
         <span className="total-price-bill">
-          ${props.fullOrder.planValue.value}/{props.fullOrder.planValue.date} +
+          ${props.fullOrder.planValue.value}/{props.fullOrder.planValue.date} +{' '}
+          {sumPrice}
         </span>
       </div>
     </div>
