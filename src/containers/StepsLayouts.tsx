@@ -192,6 +192,22 @@ export default function StepsLayouts(props: MyProps) {
           <h3>Double-check everything looks OK before confirming.</h3>
           <Finishing fullOrder={props.fullOrder} />
         </div>
+        <div className="btn-container">
+          <button
+            className="form-btn back"
+            type="button"
+            
+          >
+            Go Back
+          </button>
+          <button
+            className="form-btn"
+            type="button"
+            
+          >
+            Confirm
+          </button>
+        </div>
       </>
     );
   }
