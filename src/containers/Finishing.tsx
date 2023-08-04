@@ -61,8 +61,7 @@ export default function Finishing(props: MyProps) {
       <div className="total-price-container">
         <span className="total-price-date">Total</span>
         <span className="total-price-bill">
-          ${props.fullOrder.planValue.value}/{props.fullOrder.planValue.date} +{' '}
-          {sumPrice}
+          ${props.fullOrder.planValue.value}/{props.fullOrder.planValue.date} + ${sumPrice}/Month
         </span>
       </div>
     </div>
