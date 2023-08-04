@@ -77,3 +77,31 @@
   color: var(--principal-text);
   font-weight: 700;
 }
+
+@media only screen and (max-width: 660px) {
+  .finishin-plan-text span {
+    font-size: 14px;
+  }
+
+  .finishin-plan-text a {
+    font-size: 12px;
+  }
+
+  .finishin-plan-value {
+    font-size: 14px;
+  }
+  .ons-title {
+    font-size: 14px;
+  }
+
+  .ons-price {
+    font-size: 14px;
+  }
+  .total-price-date {
+    font-size: 14px;
+  }
+
+  .total-price-bill {
+    font-size: 14px;
+  }
+}
