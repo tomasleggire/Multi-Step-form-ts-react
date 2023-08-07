@@ -46,18 +46,20 @@ export default function Finishing(props: MyProps) {
           ${props.fullOrder.planValue.value}/{props.fullOrder.planValue.date}
         </span>
       </div>
-      <div className="div-ons-main-container">
-        {props.fullOrder.addOns.map((on) => {
-          if (!on.selected) {
-            return (
-              <div className="div-ons-main">
-                <span className="ons-title">{on.title}</span>
-                <span className="ons-price">+${on.price}/Mo</span>
-              </div>
-            );
-          }
-        })}
-      </div>
+      {sumPrice != 0 && (
+        <div className="div-ons-main-container">
+          {props.fullOrder.addOns.map((on) => {
+            if (on.selected) {
+              return (
+                <div className="div-ons-main">
+                  <span className="ons-title">{on.title}</span>
+                  <span className="ons-price">+${on.price}/Mo</span>
+                </div>
+              );
+            }
+          })}
+        </div>
+      )}
       <div className="total-price-container">
         <span className="total-price-date">Total</span>
         <span className="total-price-bill">

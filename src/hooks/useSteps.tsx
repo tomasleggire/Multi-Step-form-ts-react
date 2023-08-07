@@ -224,6 +224,12 @@ export default function useSteps() {
     console.log(fullOrder);
   };
 
+  const handleBackClickStep3 = (): void => {
+    setStateStepThree({ selected: true, completed: false });
+    setStateStepFour({ selected: false, completed: false });
+    console.log(fullOrder);
+  };
+
   const changeValueCheckBox = (
     curentItem: string,
     newValueToCurrentItem: boolean
@@ -256,5 +262,6 @@ export default function useSteps() {
     changeValueCheckBox,
     handleClickStep3,
     handleBackClickStep2,
+    handleBackClickStep3,
   };
 }

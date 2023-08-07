@@ -21,7 +21,11 @@ export default function CheckBox(props: MyProps) {
 
   return (
     <div className={`main-checkbox ${props.selected && 'check-selected'}`}>
-      <input type="checkbox" onChange={handleChange} />
+      <input
+        type="checkbox"
+        onChange={handleChange}
+        checked={props.selected && true}
+      />
       <div className="texts-ons">
         <p className="ons-name">{props.title}</p>
         <p className="ons-description">{props.description}</p>
