@@ -90,7 +90,7 @@ export default function useSteps() {
   });
 
   const [stateStepOne, setStateStepOne] = useState<StateStep>({
-    selected: false, //cambiar a true
+    selected: true,
     completed: false,
   });
   const [stateStepTwo, setStateStepTwo] = useState<StateStep>({
@@ -102,7 +102,7 @@ export default function useSteps() {
     completed: false,
   });
   const [stateStepFour, setStateStepFour] = useState<StateStep>({
-    selected: true, //cambiar a false
+    selected: false,
     completed: false,
   });
 
