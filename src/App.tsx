@@ -27,6 +27,7 @@ function App() {
     handleClickStep3,
     handleBackClickStep2,
     handleBackClickStep3,
+    changePlanButton,
   } = useSteps();
 
   return (
@@ -54,6 +55,7 @@ function App() {
           handleClickStep3={handleClickStep3}
           handleBackClickStep2={handleBackClickStep2}
           handleBackClickStep3={handleBackClickStep3}
+          changePlanButton={changePlanButton}
         />
       </FormLayout>
     </div>

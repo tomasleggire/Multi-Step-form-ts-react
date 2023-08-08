@@ -242,6 +242,12 @@ export default function useSteps() {
     setCheckBoxItems(newValues);
   };
 
+  const changePlanButton = (): void => {
+    setStateStepTwo({ selected: true, completed: false });
+    setStateStepThree({ selected: false, completed: false });
+    setStateStepFour({ selected: false, completed: false });
+  };
+
   return {
     steps,
     name,
@@ -263,5 +269,6 @@ export default function useSteps() {
     handleClickStep3,
     handleBackClickStep2,
     handleBackClickStep3,
+    changePlanButton,
   };
 }

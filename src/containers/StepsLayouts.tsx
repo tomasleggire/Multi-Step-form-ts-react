@@ -56,6 +56,7 @@ interface MyProps {
   handleClickStep3: () => void;
   handleBackClickStep2: () => void;
   handleBackClickStep3: () => void;
+  changePlanButton: () => void;
 }
 
 export default function StepsLayouts(props: MyProps) {
@@ -191,7 +192,10 @@ export default function StepsLayouts(props: MyProps) {
         <div>
           <h1>Finishing up</h1>
           <h3>Double-check everything looks OK before confirming.</h3>
-          <Finishing fullOrder={props.fullOrder} />
+          <Finishing
+            fullOrder={props.fullOrder}
+            changePlanButton={props.changePlanButton}
+          />
         </div>
         <div className="btn-container">
           <button

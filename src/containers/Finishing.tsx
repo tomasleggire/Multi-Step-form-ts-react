@@ -23,6 +23,7 @@ type FullOrder = {
 
 interface MyProps {
   fullOrder: FullOrder;
+  changePlanButton: () => void;
 }
 
 export default function Finishing(props: MyProps) {
@@ -40,7 +41,7 @@ export default function Finishing(props: MyProps) {
           <span>
             {props.fullOrder.planValue.name} ({props.fullOrder.planValue.date})
           </span>
-          <a>Change</a>
+          <a onClick={props.changePlanButton}>Change</a>
         </div>
         <span className="finishin-plan-value">
           ${props.fullOrder.planValue.value}/{props.fullOrder.planValue.date}
