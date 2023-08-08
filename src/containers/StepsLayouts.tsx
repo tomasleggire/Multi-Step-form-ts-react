@@ -205,7 +205,7 @@ export default function StepsLayouts(props: MyProps) {
           >
             Go Back
           </button>
-          <button className="form-btn" type="button">
+          <button className="form-btn form-btn-confirm" type="button">
             Confirm
           </button>
         </div>

@@ -32,6 +32,10 @@
   margin: 0 0 0 auto;
 }
 
+.form-btn-confirm {
+  background-color: var(--principal-text-confirm);
+}
+
 @media only screen and (max-width: 660px) {
   .App {
     flex-direction: column;
